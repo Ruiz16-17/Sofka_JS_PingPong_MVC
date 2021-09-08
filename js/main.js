@@ -154,8 +154,7 @@
             for (var index = this.board.bars.length -1; index >= 0; index--) {
                 
                 var bar = this.board.bars[index];
-                //console.log(this.board.ball.x);
-                //console.log(this.board.ball.y);
+
                 if(hit(bar, this.board.ball)){
                     
                     this.board.ball.collision(bar);
@@ -165,18 +164,23 @@
                     
                     this.board.ball.y += 1;
                     this.board.ball.direction_y *= -1;
-                    console.log(this.board.ball.x);
-                    console.log(this.board.ball.y);
-                    console.log(this.board.ball.direction_y);
                 }
 
                 if(this.board.ball.y > 390){
 
                     this.board.ball.y -= 1;
                     this.board.ball.direction_y *= -1;
-                    console.log(this.board.ball.x);
-                    console.log(this.board.ball.y);
-                    console.log(this.board.ball.direction_y);
+                }
+
+                if(this.board.ball.x > 800 || this.board.ball.x < 0){
+
+                    
+                    asignarPuntos(this.board.ball.x);
+                    ball.x = 400;
+                    ball.y = 150;
+                    ball.radius = 10;
+                    ball.board = board;
+                    board.isPlaying = !board.isPlaying;
                 }
             }
         },
@@ -298,6 +302,23 @@ document.addEventListener("keydown", function(event) {
     }
 
 });
+
+//Asignar puntos al jugador 1 o al jugador 2 dependiendo de las coordenadas
+var puntosJugador1 = 0;
+var puntosJugador2 = 0;
+function asignarPuntos(coordenad_X){
+
+    console.log("------------");
+    if(coordenad_X>800){
+        
+        puntosJugador1++;
+        document.getElementById("puntosJugador1").innerHTML = puntosJugador1;
+    }else{
+
+        puntosJugador2++;
+        document.getElementById("puntosJugador2").innerHTML = puntosJugador2;
+    }
+}
 
 //Ejecución del juego
 board_view.draw();
