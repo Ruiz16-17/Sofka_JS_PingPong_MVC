@@ -310,17 +310,37 @@ var puntosJugador1 = 0;
 var puntosJugador2 = 0;
 function asignarPuntos(coordenad_X){
 
-    if(coordenad_X>800){
-        
+    if(coordenad_X>800 ){
         puntosJugador1++;
         document.getElementById("puntosJugador1").innerHTML = puntosJugador1;
+        ganador(puntosJugador1,1);
     }else{
 
         puntosJugador2++;
         document.getElementById("puntosJugador2").innerHTML = puntosJugador2;
+        ganador(puntosJugador2,2);
     }
 }
 
+//Jugador ganador
+function ganador(puntos,numeroJugador) {
+    if(puntos == 5){
+
+        divGanador = document.getElementById("divGanador");
+        divGanador.style.display="";
+        
+        if(numeroJugador == 1){
+
+            document.getElementById("nombreGanador").innerHTML ="¡JUGADOR 1!";
+        }else{
+
+            document.getElementById("nombreGanador").innerHTML = "¡JUGADOR 2!";
+        }
+        
+    }
+
+    
+}
 //Ejecución del juego
 board_view.draw();
 window.requestAnimationFrame(controller);
@@ -329,4 +349,8 @@ function controller() {
 
     board_view.play();
     window.requestAnimationFrame(controller);
+}
+
+function volverJugar(){
+    location.reload();
 }
