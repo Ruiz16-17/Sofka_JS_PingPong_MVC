@@ -1,0 +1,23 @@
+.scorePlayer1{
+
+    position: absolute;
+    background-color: orange;
+    border-radius: 20px;
+    height: 100px;
+}
+
+.scorePlayer2{
+
+    position: absolute;
+    margin-left: 90%;
+    background-color: palegreen;
+    border-radius: 20px;
+    height: 100px;
+}
+
+.points{
+
+    color: white;
+    margin-left: 40%;
+    position: relative;
+}
