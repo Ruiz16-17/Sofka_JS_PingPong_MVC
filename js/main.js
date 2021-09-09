@@ -236,16 +236,18 @@
         switch (element.kind) {
             case "rectangle":
                 
+                contexto.fillStyle = "palegreen";
                 contexto.fillRect(element.x,element.y,element.width,element.height);
                 break;
 
             case "circle":
 
+                contexto.fillStyle = "orange";
                 contexto.beginPath();
                 contexto.arc(element.x,element.y,element.radius,0,7);
                 contexto.fill();
                 contexto.closePath();
-
+                
                 break;
         
             default:
@@ -308,7 +310,6 @@ var puntosJugador1 = 0;
 var puntosJugador2 = 0;
 function asignarPuntos(coordenad_X){
 
-    console.log("------------");
     if(coordenad_X>800){
         
         puntosJugador1++;
